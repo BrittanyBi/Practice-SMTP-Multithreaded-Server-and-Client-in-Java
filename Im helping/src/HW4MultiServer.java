@@ -21,7 +21,7 @@ public class HW4MultiServer {
         }
 
         while (listening){
-	    		new HW4MultiServerThread_3(serverTCPSocket.accept()).start();
+	    		new HW4MultiServerThread(serverTCPSocket.accept()).start();
             System.out.println("Connected to client, starting thread...");
 		  }
 			
