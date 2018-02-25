@@ -56,7 +56,7 @@ public class HW4MultiServerThread extends Thread {
 		    e.printStackTrace();
 		}
    }
-   public void stateMachine(int state) {
+   public void stateMachine(int state) throws IOException {
       String fromClient;
       
       
@@ -64,7 +64,7 @@ public class HW4MultiServerThread extends Thread {
       switch (state) {
          case 0:    // received QUIT
             
-            cSocketOut.println("221 <server’s ip> closing connection");
+            cSocketOut.println("221 <serverï¿½s ip> closing connection");
             break;
             
             
@@ -76,7 +76,7 @@ public class HW4MultiServerThread extends Thread {
             // state transitions
             if (fromClient.equals("HELO")) {
                state = 2;
-               cSocketOut.println("250 <server’s ip> Hello <client’s ip>");
+               cSocketOut.println("250 <serverï¿½s ip> Hello <clientï¿½s ip>");
                
             } else if (fromClient.equals("QUIT")) {
                state = 0;
