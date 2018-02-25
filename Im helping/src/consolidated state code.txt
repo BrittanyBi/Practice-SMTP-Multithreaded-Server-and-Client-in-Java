@@ -1,0 +1,16 @@
+            while (!(fromClient = cSocketIn.readLine()).equals(expectedMessage[state]) 
+                || !(fromClient = cSocketIn.readLine()).equals("QUIT")) {
+               cSocketOut.println(errorMessage[state]);
+            }
+            
+            // display client transmission
+            System.out.println(fromClient);
+            
+            // state transitions
+            if (fromClient.equals(expectedMessage[state])) {
+               state = 3;
+               cSocketOut.println(successMessage[state]);
+               
+            } else if (fromClient.equals("QUIT")) {
+               state = 0;
+            }
